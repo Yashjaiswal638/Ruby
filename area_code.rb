@@ -16,9 +16,8 @@ def get_city_names(city_list)
 end
 
 def get_area_code(city_list, key)
-    
+
 end
 
 loop do
-
 end
