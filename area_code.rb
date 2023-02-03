@@ -12,6 +12,13 @@ dial_book = {
   }
 
 def get_city_names(city_list)
-    return city_list.keys
+    puts city_list.keys
 end
 
+def get_area_code(city_list, key)
+    
+end
+
+loop do
+
+end
