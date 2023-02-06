@@ -16,8 +16,21 @@ def get_city_names(city_list)
 end
 
 def get_area_code(city_list, key)
-
+    return city_list[key]
 end
 
 loop do
+  puts 'Do you want to lookup the area code according to the city name? (Y/N)'
+  ans = gets.chomp.downcase
+  break if ans == 'n'
+  puts 'Which city do you want to know the area code for: '
+  get_city_names(dial_book)
+  print "Enter your choice : "
+  city = gets.chomp.downcase
+  if dial_book.include?(city)
+    puts "The area code for #{city} is #{get_area_code(dial_book, city)}"
+  else
+    puts "Enter a city name from the list provided above."
+  end
+
 end
