@@ -1,4 +1,3 @@
-require 'bcrypt'
 
 # my_password = BCrypt::Password.create("my password")
 
@@ -11,39 +10,35 @@ require 'bcrypt'
 # puts my_password == "my password"
 # puts my_password == "not my password"
 
-users = [
-    {username: 'test1', password:'pass1'},
-    {username: 'test2', password:'pass2'},
-    {username: 'test3', password:'pass3'},
-    {username: 'test4', password:'pass4'},
-]
 
+module Crud
+    require 'bcrypt'
+    puts 'Module crud activated'
 
-def create_hash(pass)
-    return BCrypt::Password.create(pass)
-end
-
-
-def verify_hash(pass)
-    return BCrypt::Password.new(pass)
-end
-
-
-def create_secure_users(user_list)
-    user_list.each do | user |
-        user[:password] = create_hash(user[:password])
+    def create_hash(pass)
+        return BCrypt::Password.create(pass)
     end
-end
 
-new_users = create_secure_users(users)
 
-def authenticate(username, pass, users)
-    users.each do | user |
-        if user[:username] == username && verify_hash(user[:password]) == pass
-            return user
+    def verify_hash(pass)
+        return BCrypt::Password.new(pass)
+    end
+
+
+    def create_secure_users(user_list)
+        user_list.each do | user |
+            user[:password] = create_hash(user[:password])
         end
     end
-    "Credentials were incorrect"
-end
 
-puts authenticate('test1', 'pass1', new_users)
+
+    def authenticate(username, pass, users)
+        users.each do | user |
+            if user[:username] == username && verify_hash(user[:password]) == pass
+                return user
+            end
+        end
+        "Credentials were incorrect"
+    end
+
+end
