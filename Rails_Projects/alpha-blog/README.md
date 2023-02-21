@@ -2,11 +2,10 @@
 
 Final Assignment for Ruby on Rails training
 
-Models - Users, Articles
-COntrollers - Pages, Users, Articles, Sessions, Application
+* Models - Users, Articles
+* Controllers - Pages, Users, Articles, Sessions, Application
 
-Expected Functionalities - 
-
+* Expected Functionalities - 
 
 * Build homepage
 * Build a login / signup system using devise gem or create your own
