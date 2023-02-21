@@ -1,6 +1,6 @@
 <h1>Blog Users</h1>
 
-<div class="flickr_pagination">
+<div>
   <%= will_paginate @users, :container => false %>
 </div>
 
@@ -10,7 +10,7 @@
     <tr>
       <th>Username</th>
       <th>Total Articles Written</th>
-      <th colspan="2">Actions</th>
+      <th colspan="1">Actions</th>
       <th>Joined</th>
     </tr>
   </thead>
@@ -22,7 +22,9 @@
       <td> <%= link_to user.username, user %> </td>
       <td> <%= pluralize(user.articles.count, 'article') %> </td>
       <td><%= link_to 'View', user %></td>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <% if logged_in? && user == current_user %>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <% end %>
       <td><%= time_ago_in_words(user.created_at) %> ago</td>
     </tr>
     <% end %>
@@ -30,6 +32,6 @@
 
 </table>
 
-<div class="flickr_pagination">
+<div>
   <%= will_paginate @users, :container => false %>
 </div>
