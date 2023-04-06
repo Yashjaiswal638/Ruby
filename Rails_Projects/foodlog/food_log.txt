@@ -1,0 +1,4 @@
+rails g scaffold Entry meal_type:string calories:integer proteins:integer carbs:integer fats:integer
+
+http://127.0.0.1:3000/rails/info/routes
+

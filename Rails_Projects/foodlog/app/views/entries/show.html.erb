@@ -1,0 +1,6 @@
+<% content_for :title do %>
+  <%= @entry.meal_type %> &ndash; <%= DateTime.now.to_s[0..9] %>
+<% end %>
+
+<%= render @entry %>
+

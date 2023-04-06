@@ -1,0 +1,11 @@
+<% content_for :title do%>
+  Foodlog &ndash; <%= DateTime.now.to_s[0..9] %>
+  <%# Foodlog &ndash; <%= DateTime.now.to_s(:nice_date) %>
+<% end %>
+
+<div id="entries">
+  <% @entries.each do |entry| %>
+    <%= render entry %>
+  <% end %>
+</div>
+
