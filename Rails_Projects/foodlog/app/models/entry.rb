@@ -1,4 +1,6 @@
 class Entry < ApplicationRecord
+    belongs_to :category
+
     # validates ${:calories, :proteins, :carbs, :fats, :meal_type}, presence :true
     validates :meal_type, presence: true
     validates :calories, presence: true
